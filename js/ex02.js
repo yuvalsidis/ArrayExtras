@@ -7,7 +7,7 @@ var actual = reverseAll(input)
 console.log('INPUT:', input, 'EXPECTED:', expected, 'ACTUAL:', actual);
 
 function reverseAll(strs){
-    return strs.map((str) => reverseStr(str))
+    return strs.map((str) =>  reverseStr(str))
 }
 
 function reverseStr(str) {
