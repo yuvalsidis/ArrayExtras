@@ -27,8 +27,7 @@ var emps = [
     }
 ];
 
-
-
+var arrayTest = [15, 1, 15, 12, 1, 12, 15]
 
 const sumYearsExpiriance = emps.reduce((accumulator, correctValue) => {
     return accumulator + correctValue.yearsExperience
@@ -78,6 +77,17 @@ const emplyersEachDepartment = emps.reduce((accumaltor, correctValue) => {
 console.log(emplyersEachDepartment)
 
 
-function findModes(values){
-
+function findModes(values) {
+    const mapNumberByAppear = values.reduce((accumaltor, correctValue) => {
+        if(accumaltor.hasOwnProperty('' + correctValue)){
+            accumaltor['' + correctValue]++
+        }
+        else{
+            accumaltor['' + correctValue] = 1
+        }
+        return accumaltor
+    }, {})
+    console.log('times', mapNumberByAppear)
 }
+
+findModes(arrayTest)
