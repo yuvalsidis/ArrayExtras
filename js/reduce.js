@@ -1,21 +1,4 @@
 'use strict'
-/*
-const array1 = [1, 2, 3, 4];
-
-// 0 + 1 + 2 + 3 + 4
-const initialValue = 0;
-const sumWithInitial = array1.reduce(
-  (accumulator, currentValue) => accumulator + currentValue,
-  initialValue,
-);
-
-console.log(sumWithInitial);
-// Expected output: 10
-var sum = 0
-var newSum = array1.forEach((num) => sum += num)
-console.log(sum);
-*/
-
 var emps = [
     {
         name: 'Joe Schmoe',
@@ -58,7 +41,7 @@ const deptCollectiveExp = emps.reduce((accumulator, correctValue) => {
     console.log(strCurrectKeyValue)
     if (accumulator.hasOwnProperty(strCurrectKeyValue)) {
         accumulator[strCurrectKeyValue] += correctValue.yearsExperience
-    }else{
+    } else {
         accumulator[strCurrectKeyValue] = correctValue.yearsExperience
     }
     return accumulator
@@ -66,16 +49,35 @@ const deptCollectiveExp = emps.reduce((accumulator, correctValue) => {
 
 console.log('The map of dep and there collective years :', deptCollectiveExp)
 
-const emplyeesByExperience = emps.reduce((accumulator, correctValue) =>{
+const emplyeesByExperience = emps.reduce((accumulator, correctValue) => {
     const strCurrectKeyValue = correctValue.yearsExperience + ''
     const strCurrectName = correctValue.name
     if (accumulator.hasOwnProperty(strCurrectKeyValue)) {
         accumulator[strCurrectKeyValue].push(strCurrectName)
-    }else{
+    } else {
         accumulator[strCurrectKeyValue] = [strCurrectName]
     }
     return accumulator
-   
+
 }, {})
 
 console.log(emplyeesByExperience)
+
+const emplyersEachDepartment = emps.reduce((accumaltor, correctValue) => {
+    const strDepartment = correctValue.department
+
+    if (accumaltor.hasOwnProperty(strDepartment)) {
+        accumaltor[strDepartment]++
+    }
+    else {
+        accumaltor[strDepartment] = 1
+    }
+    return accumaltor
+}, {})
+
+console.log(emplyersEachDepartment)
+
+
+function findModes(values){
+
+}
