@@ -28,6 +28,7 @@ var emps = [
 ];
 
 var arrayTest = [15, 1, 15, 12, 1, 12, 15]
+var arrayTest2 = [15, "asdasd", [1, 17], 15, [10, 16], [4], 12, 15]
 
 const sumYearsExpiriance = emps.reduce((accumulator, correctValue) => {
     return accumulator + correctValue.yearsExperience
@@ -76,13 +77,12 @@ const emplyersEachDepartment = emps.reduce((accumaltor, correctValue) => {
 
 console.log(emplyersEachDepartment)
 
-
 function findModes(values) {
     const mapNumberByAppear = values.reduce((accumaltor, correctValue) => {
-        if(accumaltor.hasOwnProperty('' + correctValue)){
+        if (accumaltor.hasOwnProperty('' + correctValue)) {
             accumaltor['' + correctValue]++
         }
-        else{
+        else {
             accumaltor['' + correctValue] = 1
         }
         return accumaltor
@@ -91,3 +91,27 @@ function findModes(values) {
 }
 
 findModes(arrayTest)
+
+function flatten(values) {
+    if (!Array.isArray(values)) {
+        console.error("Input is not an array");
+        return;
+    }
+
+    const sortedArray = values.filter((value) => value.length)
+    const diconnectedArray = sortedArray.reduce((accumaltor, currectValue) => {
+        console.log(currectValue)
+        if (typeof (currectValue) === "string") {
+            accumaltor.push(currectValue)
+        } else {
+            currectValue.forEach(element => {
+                accumaltor.push(element)
+            });
+        }
+        return accumaltor
+    }, [])
+    return diconnectedArray
+}
+
+console.log('The modify array is :', flatten(arrayTest2) ) 
+
