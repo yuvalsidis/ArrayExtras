@@ -65,3 +65,17 @@ const deptCollectiveExp = emps.reduce((accumulator, correctValue) => {
 }, {})
 
 console.log('The map of dep and there collective years :', deptCollectiveExp)
+
+const emplyeesByExperience = emps.reduce((accumulator, correctValue) =>{
+    const strCurrectKeyValue = correctValue.yearsExperience + ''
+    const strCurrectName = correctValue.name
+    if (accumulator.hasOwnProperty(strCurrectKeyValue)) {
+        accumulator[strCurrectKeyValue].push(strCurrectName)
+    }else{
+        accumulator[strCurrectKeyValue] = [strCurrectName]
+    }
+    return accumulator
+   
+}, {})
+
+console.log(emplyeesByExperience)
