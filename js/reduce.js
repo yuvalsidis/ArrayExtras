@@ -13,7 +13,6 @@ var emps = [
     {
         name: 'Bill Billson',
         yearsExperience: 5,
-        department: 'Engineering'
     },
     {
         name: 'Jane Janet',
@@ -38,7 +37,6 @@ console.log('Sum years expiriance is:', sumYearsExpiriance)
 
 const deptCollectiveExp = emps.reduce((accumulator, correctValue) => {
     const strCurrectKeyValue = correctValue.department
-    console.log(strCurrectKeyValue)
     if (accumulator.hasOwnProperty(strCurrectKeyValue)) {
         accumulator[strCurrectKeyValue] += correctValue.yearsExperience
     } else {
@@ -65,7 +63,6 @@ console.log(emplyeesByExperience)
 
 const emplyersEachDepartment = emps.reduce((accumaltor, correctValue) => {
     const strDepartment = correctValue.department
-
     if (accumaltor.hasOwnProperty(strDepartment)) {
         accumaltor[strDepartment]++
     }
